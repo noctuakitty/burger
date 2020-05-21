@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="jumbotron">
+                <h1 class="display-3">Hello, world!</h1>
+                <p class="lead">Welcome to Burger Time!</p>
+                <hr class="my-4">
+                <p>It uses javascript, express, and handlebars to let you give it a burger and then devour that burger
+                    and store it in a database.
+                </p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="/api/burgers" role="button">Learn more</a>
+                </p>
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Burger Name</label>
+                    <input type="text" class="form-control" placeholder="Name Here" id="inputDefault">
+                </div>
+                <p class="lead">
+                    <a class="btn btn-primary" role="button" id="submitButton">Add Burger</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{{#each burgers}}
+{{#unless devoured}}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 cold-md-6 col-lg-6">
+            <div class="card border-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">Burgers Available</div>
+                <div class="card-body">
+                    <h4 class="card-title">Ready to Eat</h4>
+                    <p class="card-text">
+                        {{this.burger_name}}
+                    </p>
+                    <button type="button" data-id="{{this.id}}" class="devourButton" class="btn btn-outline-primary">Devour</button>
+                </div>
+            </div>
+        </div>
+        {{/unless}}
+        {{/each}}
+        {{#each burger}}
+        {{#if devoured}}
+        <div class="col-sm-6 cold-md-6 col-lg-6">
+            <div class="card border-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">Burgers</div>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        Devoured
+                    </h4>
+                    <p class="card-text">
+                        {{this.burger_name}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+        {{/each}}
+    </div>
+</div>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/buttons.js"></script>
