@@ -22,28 +22,30 @@
         </div>
     </div>
 </div>
-{{#each burgers}}
-{{#unless devoured}}
+
 <div class="container">
     <div class="row">
         <div class="col-sm-6 cold-md-6 col-lg-6">
-            <div class="card border-primary mb-3" style="max-width: 20rem;">
+            {{#each burgers}}
+            {{#unless devoured}}
+            <div id="burgerDisplay" class="card border-primary mb-3">
                 <div class="card-header">Burgers Available</div>
                 <div class="card-body">
                     <h4 class="card-title">Ready to Eat</h4>
                     <p class="card-text">
                         {{this.burger_name}}
                     </p>
-                    <button type="button" data-id="{{this.id}}" class="devourButton" class="btn btn-outline-primary">Devour</button>
+                    <button type="button" data-id="{{this.id}}" class="devourButton"
+                        class="btn btn-outline-primary">Devour</button>
                 </div>
             </div>
+            {{/unless}}
+            {{/each}}
         </div>
-        {{/unless}}
-        {{/each}}
-        {{#each burger}}
-        {{#if devoured}}
         <div class="col-sm-6 cold-md-6 col-lg-6">
-            <div class="card border-primary mb-3" style="max-width: 20rem;">
+            {{#each burger}}
+            {{#if devoured}}
+            <div id="burgerDisplay" class="card border-primary mb-3">
                 <div class="card-header">Burgers</div>
                 <div class="card-body">
                     <h4 class="card-title">
@@ -54,13 +56,13 @@
                     </p>
                 </div>
             </div>
+            {{/if}}
+            {{/each}}
         </div>
-        {{/if}}
-        {{/each}}
+
     </div>
 </div>
 
 
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/buttons.js"></script>
